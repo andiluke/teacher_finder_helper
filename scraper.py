@@ -20,7 +20,7 @@ for course in course_links:
     # keep course id handy
     course_page = requests.get(course.get("href"))
     course_soup = BeautifulSoup(course_page.content, "html.parser")
-    session_links = course_soup.select("table.jxScheduleSortable tbody td a", limit=10)
+    session_links = course_soup.select("table.jxScheduleSortable tbody td a", limit=4)
     for link in session_links:
         # find each instructor (there are other links in here)
         if (link.get("href").startswith("https://www.pcc.edu/staff/directory/")):
